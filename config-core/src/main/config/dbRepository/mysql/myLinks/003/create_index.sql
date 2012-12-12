@@ -1,0 +1,1 @@
+CREATE INDEX ind_link ON sb_mylinks_link (linkid);

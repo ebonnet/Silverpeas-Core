@@ -1,0 +1,4 @@
+alter table sb_agenda_import_settings drop index index_sb_agenda_import_settings
+;
+alter table st_instance_modelused drop index ind_st_instance_modelused
+;

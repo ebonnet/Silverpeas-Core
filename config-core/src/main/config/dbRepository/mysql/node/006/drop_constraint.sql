@@ -1,0 +1,2 @@
+ALTER TABLE sb_node_node DROP PRIMARY KEY;
+ALTER TABLE sb_node_nodei18n DROP PRIMARY KEY;

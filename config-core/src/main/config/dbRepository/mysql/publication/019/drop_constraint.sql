@@ -1,0 +1,10 @@
+alter table sb_publication_info			drop primary key;
+alter table sb_publication_infoattachment	drop primary key;
+alter table sb_publication_infoimage		drop primary key;
+alter table sb_publication_infolink		drop primary key;
+alter table sb_publication_infotext		drop primary key;
+alter table sb_publication_publi		drop primary key;
+alter table sb_publication_publifather		drop primary key;
+alter table sb_thumbnail_thumbnail drop primary key;
+alter table sb_seealso_link drop primary key;
+alter table sb_publication_publii18n drop primary key;

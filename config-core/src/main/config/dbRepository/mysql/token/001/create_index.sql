@@ -1,0 +1,1 @@
+create unique index idx_uc_st_token on st_token(tokentype, resourceid);

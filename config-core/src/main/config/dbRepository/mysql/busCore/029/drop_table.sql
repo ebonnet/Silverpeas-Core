@@ -1,0 +1,22 @@
+drop table st_userrole_group_rel ;
+drop table st_userrole_user_rel ;
+drop table st_userrole ;
+drop table st_instance_data;
+drop table st_componentinstance ;
+drop table st_group_user_rel ;
+drop table st_spaceuserrole_group_rel;
+drop table st_spaceuserrole_user_rel;
+drop table st_spaceuserrole ;
+drop table st_group ;
+drop table st_space ;
+drop table st_user ;
+drop table st_domain ;
+drop table st_accesslevel ;
+
+drop table domainsp_group_user_rel ;
+drop table domainsp_group ;
+drop table domainsp_user ;
+drop table st_keystore;
+drop table st_longtext;
+drop table st_instance_modelused;
+drop table st_userfavoritespaces;

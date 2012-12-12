@@ -1,0 +1,9 @@
+drop table st_notifchannel;
+drop table st_notifaddress;
+drop table st_notifdefaultaddress;
+drop table st_notifpreference;
+drop table st_notifsended;
+drop table st_notifsendedreceiver;
+drop table st_delayednotification;
+drop table st_notificationresource;
+drop table st_delayednotifusersetting;

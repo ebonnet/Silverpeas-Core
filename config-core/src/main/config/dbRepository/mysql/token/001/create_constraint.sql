@@ -1,0 +1,1 @@
+alter table st_token add constraint const_st_token_pk primary key (id);

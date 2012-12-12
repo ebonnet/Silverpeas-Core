@@ -1,0 +1,12 @@
+drop table sb_publication_info;
+drop table sb_publication_infoattachment;
+drop table sb_publication_infoimage;
+drop table sb_publication_infolink;
+drop table sb_publication_infotext;
+drop table sb_publication_publi;
+drop table sb_publication_publifather;
+drop table sb_thumbnail_thumbnail;
+drop table sb_seealso_link;
+drop table sb_publication_publii18n;
+drop table sb_publication_validation;
+drop table sb_thumbnail_thumbnail;

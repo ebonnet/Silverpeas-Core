@@ -1,0 +1,1 @@
+drop table sb_classifyengine_classify;

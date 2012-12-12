@@ -1,0 +1,1 @@
+ALTER TABLE st_quota DROP PRIMARY KEY;

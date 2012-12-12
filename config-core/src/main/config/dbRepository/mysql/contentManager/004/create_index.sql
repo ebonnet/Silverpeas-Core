@@ -1,0 +1,2 @@
+CREATE INDEX in_contentmanager_content_dlb
+ON sb_contentmanager_content (internalContentId, contentInstanceId);

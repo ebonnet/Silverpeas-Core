@@ -1,0 +1,1 @@
+ALTER TABLE sb_coordinates_coordinates	DROP PRIMARY KEY;

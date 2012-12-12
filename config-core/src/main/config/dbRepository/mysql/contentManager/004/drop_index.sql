@@ -1,0 +1,1 @@
+DROP INDEX in_contentmanager_content_dlb ON sb_contentmanager_content;

@@ -1,0 +1,5 @@
+ALTER TABLE sb_attachment_attachment DROP CONSTRAINT pk_attachment_attachment
+;
+
+ALTER TABLE sb_attachment_attachmenti18n DROP CONSTRAINT pk_attachment_attachmenti18n
+;

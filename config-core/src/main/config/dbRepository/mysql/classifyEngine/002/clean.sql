@@ -1,0 +1,1 @@
+DELETE FROM sb_classifyengine_classify WHERE (PositionId = -1);

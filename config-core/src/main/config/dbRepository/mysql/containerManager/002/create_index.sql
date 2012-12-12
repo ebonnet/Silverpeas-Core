@@ -1,0 +1,2 @@
+CREATE INDEX in_containermanager_links_dlb
+ON sb_containermanager_links (positionId, containerInstanceId);

@@ -1,0 +1,2 @@
+drop table sb_containermanager_instance;
+drop table sb_containermanager_links;

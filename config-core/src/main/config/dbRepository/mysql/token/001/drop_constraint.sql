@@ -1,0 +1,1 @@
+alter table st_token drop primary key;

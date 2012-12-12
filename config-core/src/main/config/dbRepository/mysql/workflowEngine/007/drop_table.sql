@@ -1,0 +1,11 @@
+drop table sb_workflow_processinstance;
+drop table sb_workflow_activestate;
+drop table sb_workflow_historystep;
+drop table sb_workflow_undo_step;
+drop table sb_workflow_interesteduser;
+drop table sb_workflow_lockinguser;
+drop table sb_workflow_workinguser;
+drop table sb_workflow_question;
+drop table sb_workflow_userinfo;
+drop table sb_workflow_usersettings;
+drop table sb_workflow_error;
