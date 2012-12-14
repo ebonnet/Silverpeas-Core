@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dataset>
+  <sb_workflow_processinstance instanceid="1" modelid="workflow-test10" locked="0" errorstatus="0" timeoutstatus="0" />                                
+  <sb_workflow_processinstance instanceid="2" modelid="workflow-test10" locked="0" errorstatus="0" timeoutstatus="0" />
+  <sb_workflow_processinstance instanceid="3" modelid="workflow-test10" locked="0" errorstatus="0" timeoutstatus="0" />
+
+  <sb_workflow_interesteduser id="1" userid="10" instanceid="1" state="Valid" role="user" usersrole="[NULL]" groupid="[NULL]" />
+  <sb_workflow_interesteduser id="2" userid="[NULL]" instanceid="1" state="Valid" role="manager" usersrole="manager" groupid="[NULL]" />
+
+  <uniqueId maxId="5" tableName="sb_workflow_processinstance" />
+  <uniqueId maxId="5" tableName="sb_workflow_interesteduser" />
+</dataset>
