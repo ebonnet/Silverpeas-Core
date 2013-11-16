@@ -48,6 +48,10 @@ ALTER TABLE DomainSP_User DROP CONSTRAINT UN_DomainSP_User_1;
 ALTER TABLE DomainSP_Group_User_Rel DROP CONSTRAINT FK_DomainSP_Group_User_Rel_1;
 ALTER TABLE DomainSP_Group_User_Rel DROP CONSTRAINT FK_DomainSP_Group_User_Rel_2;
 
+ALTER TABLE ST_UserFavoriteSpaces DROP CONSTRAINT PK_UserFavoriteSpaces;
+ALTER TABLE ST_UserFavoriteSpaces DROP CONSTRAINT FK_UserFavoriteSpaces_1;
+ALTER TABLE ST_UserFavoriteSpaces DROP CONSTRAINT FK_UserFavoriteSpaces_2;
+
 ALTER TABLE ST_AccessLevel DROP CONSTRAINT PK_AccessLevel;
 ALTER TABLE ST_User DROP CONSTRAINT PK_User;
 ALTER TABLE ST_Group DROP CONSTRAINT PK_Group;
@@ -67,6 +71,3 @@ ALTER TABLE ST_Domain DROP CONSTRAINT PK_ST_Domain;
 ALTER TABLE DomainSP_Group_User_Rel DROP CONSTRAINT PK_DomainSP_Group_User_Rel;
 ALTER TABLE st_instance_modelused DROP CONSTRAINT PK_st_instance_modelused;
 
-ALTER TABLE ST_UserFavoriteSpaces DROP CONSTRAINT PK_UserFavoriteSpaces;
-ALTER TABLE ST_UserFavoriteSpaces DROP CONSTRAINT FK_UserFavoriteSpaces_1;
-ALTER TABLE ST_UserFavoriteSpaces DROP CONSTRAINT FK_UserFavoriteSpaces_2;

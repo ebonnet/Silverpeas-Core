@@ -4,18 +4,14 @@
   <sb_workflow_processinstance instanceid="1" modelid="workflow-test10" locked="0" errorstatus="0" timeoutstatus="0" />                                
   <sb_workflow_processinstance instanceid="2" modelid="workflow-test10" locked="0" errorstatus="0" timeoutstatus="0" />
   <sb_workflow_processinstance instanceid="3" modelid="workflow-test10" locked="0" errorstatus="0" timeoutstatus="0" />
-  <sb_workflow_processinstance instanceid="4" modelid="workflow-test11" locked="0" errorstatus="0" timeoutstatus="0" />
-  <sb_workflow_processinstance instanceid="5" modelid="workflow-test11" locked="0" errorstatus="0" timeoutstatus="0" />
-  <sb_workflow_processinstance instanceid="6" modelid="workflow-test11" locked="0" errorstatus="0" timeoutstatus="0" />
 
   <sb_workflow_interesteduser id="1" userid="10" instanceid="1" state="Valid" role="user" usersrole="[NULL]" groupid="[NULL]" />
   <sb_workflow_interesteduser id="2" userid="[NULL]" instanceid="1" state="Valid" role="manager" usersrole="manager" groupid="[NULL]" />
-  <sb_workflow_interesteduser id="3" userid="10" instanceid="4" state="Valid" role="user" usersrole="[NULL]" groupid="[NULL]" />
 
   <sb_workflow_workinguser id="1" userid="10" instanceid="1" state="Valid" role="user" usersrole="[NULL]" groupid="[NULL]" />
-  <sb_workflow_workinguser id="2" userid="[NULL]" instanceid="2" state="Valid" role="manager" usersrole="manager" groupid="[NULL]" />
+  <sb_workflow_workinguser id="2" userid="[NULL]" instanceid="1" state="Valid" role="manager" usersrole="manager" groupid="[NULL]" />
 
-  <uniqueId maxId="15" tableName="sb_workflow_processinstance" />
-  <uniqueId maxId="10" tableName="sb_workflow_interesteduser" />
-  <uniqueId maxId="10" tableName="sb_workflow_workinguser" />
+  <uniqueId maxId="5" tableName="sb_workflow_processinstance" />
+  <uniqueId maxId="5" tableName="sb_workflow_interesteduser" />
+  <uniqueId maxId="5" tableName="sb_workflow_workinguser" />
 </dataset>

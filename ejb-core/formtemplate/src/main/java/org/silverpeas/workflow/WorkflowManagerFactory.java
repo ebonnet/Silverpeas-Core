@@ -14,7 +14,7 @@ public class WorkflowManagerFactory {
   private static final WorkflowManagerFactory instance = new WorkflowManagerFactory();
 
   @Inject
-  @Named("simpleResourcesManager")
+  @Named("simpleWorkflowManager")
   private WorkflowManager workflowManager;
   
   public static final WorkflowManagerFactory getInstance() {

@@ -13,26 +13,24 @@ import javax.persistence.TableGenerator;
 
 /**
  * <query>insert into uniqueid select max(id) as maxid,
- * 'sb_workflow_interesteduser' as tablename from sb_workflow_interesteduser</query>
+ * 'sb_workflow_workinguser' as tablename from sb_workflow_workinguser</query>
  * @author ebonnet
  *
  */
 
 @Entity
-@Table(name = "sb_workflow_interesteduser")
-public class InterestedUserMdl {
+@Table(name = "sb_workflow_workinguser")
+public class WorkingUserMdl {
   @Id
   @TableGenerator(name = "UNIQUE_ID_GEN", table = "uniqueId", pkColumnName = "tablename",
-  valueColumnName = "maxId", pkColumnValue = "sb_workflow_interesteduser", allocationSize=1)
+  valueColumnName = "maxId", pkColumnValue = "sb_workflow_workinguser", allocationSize=1)
   @GeneratedValue(strategy = GenerationType.TABLE, generator = "UNIQUE_ID_GEN")
   private Integer id;
   
   @Column
   private String userId;
   
-  // Main relation InterestedUserMdl (many) -> ProcessInstanceMdl (one)
-  // Implemented by a foreign key (instanceid) inside InterestedUserMdl
-  // An InterestedUser is always linked to a ProcessInstance (nullable=false)
+  // @See InterestedUserMdl relation
   @ManyToOne(optional = true, fetch = FetchType.EAGER)
   @JoinColumn(name = "instanceid", nullable = true, updatable = true)
   private ProcessInstanceMdl processInstanceMdl;
@@ -49,33 +47,9 @@ public class InterestedUserMdl {
   /**
    * Default Constructor
    */
-  public InterestedUserMdl() {
+  public WorkingUserMdl() {
     super();
   }
-
-  
-  
-  /**
-   * For test purpose only
-   * @param userId
-   * @param processInstanceMdl
-   * @param state
-   * @param role
-   * @param usersRole
-   * @param groupId
-   */
-  public InterestedUserMdl(String userId, ProcessInstanceMdl processInstanceMdl,
-      String state, String role, String usersRole, String groupId) {
-    super();
-    this.userId = userId;
-    this.processInstanceMdl = processInstanceMdl;
-    this.state = state;
-    this.role = role;
-    this.usersRole = usersRole;
-    this.groupId = groupId;
-  }
-
-
 
   /**
    * @return the id

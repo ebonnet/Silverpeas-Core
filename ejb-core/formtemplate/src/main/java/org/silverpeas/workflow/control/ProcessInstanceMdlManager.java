@@ -22,18 +22,22 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package com.silverpeas.workflow.api;
+package org.silverpeas.workflow.control;
 
-import com.silverpeas.workflow.api.instance.ProcessInstance;
+import java.util.List;
+
+import org.silverpeas.workflow.model.ProcessInstanceMdl;
+
+import com.silverpeas.workflow.api.WorkflowException;
 import com.silverpeas.workflow.api.instance.Actor;
 import com.silverpeas.workflow.api.instance.HistoryStep;
-import com.silverpeas.workflow.api.user.User;
 import com.silverpeas.workflow.api.model.State;
+import com.silverpeas.workflow.api.user.User;
 
 /**
  * The workflow engine services relate to process instance management.
  */
-public interface ProcessInstanceManager {
+public interface ProcessInstanceMdlManager {
   /**
    * Get the list of process instances for a given peas Id, user and role.
    * @param peasId id of processManager instance
@@ -42,7 +46,7 @@ public interface ProcessInstanceManager {
    * different roles)
    * @return an array of ProcessInstance objects
    */
-  public ProcessInstance[] getProcessInstances(String peasId, User user, String role)
+  public List<ProcessInstanceMdl> getProcessInstances(String peasId, User user, String role)
       throws WorkflowException;
 
   /**
@@ -53,7 +57,7 @@ public interface ProcessInstanceManager {
    * @param userRoles all role names that user has for this component instance different roles)
    * @return an array of ProcessInstance objects
    */
-  public ProcessInstance[] getProcessInstances(String peasId, User user, String role,
+  public List<ProcessInstanceMdl> getProcessInstances(String peasId, User user, String role,
       String[] userRoles, String[] groupIds) throws WorkflowException;
 
   /**
@@ -62,7 +66,7 @@ public interface ProcessInstanceManager {
    * @param state activated state
    * @return an array of ProcessInstance objects
    */
-  public ProcessInstance[] getProcessInstancesInState(String peasId, State state)
+  public List<ProcessInstanceMdl> getProcessInstancesInState(String peasId, State state)
       throws WorkflowException;
 
   /**
@@ -70,7 +74,7 @@ public interface ProcessInstanceManager {
    * @param instanceId id of searched instance
    * @return the searched process instance
    */
-  public ProcessInstance getProcessInstance(String instanceId) throws WorkflowException;
+  public ProcessInstanceMdl getProcessInstance(String instanceId) throws WorkflowException;
 
   /**
    * Build a new HistoryStep Return an object implementing HistoryStep interface
@@ -87,6 +91,6 @@ public interface ProcessInstanceManager {
    * @return an array of ProcessInstance objects
    * @throws WorkflowException
    */
-  public ProcessInstance[] getTimeOutProcessInstances() throws WorkflowException;
+  public List<ProcessInstanceMdl> getTimeOutProcessInstances() throws WorkflowException;
 
 }

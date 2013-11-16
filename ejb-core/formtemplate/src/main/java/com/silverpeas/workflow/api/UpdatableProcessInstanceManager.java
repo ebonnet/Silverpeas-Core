@@ -37,8 +37,7 @@ public interface UpdatableProcessInstanceManager extends ProcessInstanceManager 
    * @param modelId model id
    * @return the new ProcessInstance object
    */
-  public ProcessInstance createProcessInstance(String modelId)
-      throws WorkflowException;
+  public ProcessInstance createProcessInstance(String modelId) throws WorkflowException;
 
   /**
    * Removes a new process instance
@@ -52,8 +51,7 @@ public interface UpdatableProcessInstanceManager extends ProcessInstanceManager 
    * @param state state that have to be locked
    * @param user the locking user
    */
-  public void lock(ProcessInstance instance, State state, User user)
-      throws WorkflowException;
+  public void lock(ProcessInstance instance, State state, User user) throws WorkflowException;
 
   /**
    * Locks the given instance for the given instance and state
@@ -61,6 +59,5 @@ public interface UpdatableProcessInstanceManager extends ProcessInstanceManager 
    * @param state state that have to be locked
    * @param user the locking user
    */
-  public void unlock(ProcessInstance instance, State state, User user)
-      throws WorkflowException;
+  public void unlock(ProcessInstance instance, State state, User user) throws WorkflowException;
 }

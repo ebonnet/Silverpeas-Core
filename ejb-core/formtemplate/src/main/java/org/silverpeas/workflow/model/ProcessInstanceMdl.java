@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.TableGenerator;
 
@@ -31,7 +32,7 @@ public class ProcessInstanceMdl implements Serializable {
   @TableGenerator(name = "UNIQUE_ID_GEN", table = "uniqueId", pkColumnName = "tablename",
       valueColumnName = "maxId", pkColumnValue = "sb_workflow_processinstance", allocationSize = 1)
   @GeneratedValue(strategy = GenerationType.TABLE, generator = "UNIQUE_ID_GEN")
-  private Integer instanceid;
+  private Integer instanceId;
   @Column(name = "modelid", length = 50, nullable = false)
   private String applicationId;
   @Column
@@ -49,12 +50,171 @@ public class ProcessInstanceMdl implements Serializable {
   @OneToMany(mappedBy = "processInstanceMdl", cascade = { CascadeType.ALL })
   private List<InterestedUserMdl> interestedUsers = new ArrayList<InterestedUserMdl>();
 
+  @OneToMany(mappedBy = "processInstanceMdl", cascade = { CascadeType.ALL })
+  private List<WorkingUserMdl> workingUsers = new ArrayList<WorkingUserMdl>();
+  
+  @OneToOne(mappedBy = "processInstanceMdl", cascade= { CascadeType.ALL })
+  private ActiveStateMdl activeState;
+
+  
+  
+  /**
+   * Default ProcessInstanceMdl constructor
+   */
+  public ProcessInstanceMdl() {
+  }
+  
+  /**
+   * @param instanceId
+   * @param applicationId
+   * @param locked
+   * @param errorStatus
+   * @param timeoutStatus
+   * @param interestedUsers
+   * @param workingUsers
+   * @param activeState
+   */
+  public ProcessInstanceMdl(Integer instanceId, String applicationId, int locked, int errorStatus,
+      int timeoutStatus, List<InterestedUserMdl> interestedUsers,
+      List<WorkingUserMdl> workingUsers, ActiveStateMdl activeState) {
+    super();
+    this.instanceId = instanceId;
+    this.applicationId = applicationId;
+    this.locked = locked;
+    this.errorStatus = errorStatus;
+    this.timeoutStatus = timeoutStatus;
+    this.interestedUsers = interestedUsers;
+    this.workingUsers = workingUsers;
+    this.activeState = activeState;
+  }
+
+
   // association bidirectionnelle Categorie <--> Article
   public void addInterestedUser(InterestedUserMdl interestedUser) {
-    // l'article est ajouté dans la collection des articles de la catégorie
     interestedUsers.add(interestedUser);
-    // l'article change de catégorie
+    // Set current process instance model inside InterestedUser
     interestedUser.setProcessInstanceMdl(this);
   }
 
+  
+  /*
+   * GETTER and SETTER 
+   */
+  
+  /**
+   * @return the interestedUsers
+   */
+  public List<InterestedUserMdl> getInterestedUsers() {
+    return interestedUsers;
+  }
+
+  /**
+   * @param interestedUsers the interestedUsers to set
+   */
+  public void setInterestedUsers(List<InterestedUserMdl> interestedUsers) {
+    this.interestedUsers = interestedUsers;
+  }
+
+  /**
+   * @return the workingUsers
+   */
+  public List<WorkingUserMdl> getWorkingUsers() {
+    return workingUsers;
+  }
+
+  /**
+   * @param workingUsers the workingUsers to set
+   */
+  public void setWorkingUsers(List<WorkingUserMdl> workingUsers) {
+    this.workingUsers = workingUsers;
+  }
+
+
+  /**
+   * @return the activeState
+   */
+  public ActiveStateMdl getActiveState() {
+    return activeState;
+  }
+
+
+  /**
+   * @param activeState the activeState to set
+   */
+  public void setActiveState(ActiveStateMdl activeState) {
+    this.activeState = activeState;
+  }
+
+  /**
+   * @return the instanceId
+   */
+  public Integer getInstanceId() {
+    return instanceId;
+  }
+
+  /**
+   * @param instanceId the instanceId to set
+   */
+  public void setInstanceId(Integer instanceId) {
+    this.instanceId = instanceId;
+  }
+
+  /**
+   * @return the applicationId
+   */
+  public String getApplicationId() {
+    return applicationId;
+  }
+
+  /**
+   * @param applicationId the applicationId to set
+   */
+  public void setApplicationId(String applicationId) {
+    this.applicationId = applicationId;
+  }
+
+  /**
+   * @return the locked
+   */
+  public int getLocked() {
+    return locked;
+  }
+
+  /**
+   * @param locked the locked to set
+   */
+  public void setLocked(int locked) {
+    this.locked = locked;
+  }
+
+  /**
+   * @return the errorStatus
+   */
+  public int getErrorStatus() {
+    return errorStatus;
+  }
+
+  /**
+   * @param errorStatus the errorStatus to set
+   */
+  public void setErrorStatus(int errorStatus) {
+    this.errorStatus = errorStatus;
+  }
+
+  /**
+   * @return the timeoutStatus
+   */
+  public int getTimeoutStatus() {
+    return timeoutStatus;
+  }
+
+  /**
+   * @param timeoutStatus the timeoutStatus to set
+   */
+  public void setTimeoutStatus(int timeoutStatus) {
+    this.timeoutStatus = timeoutStatus;
+  }
+
+  
+  
 }
