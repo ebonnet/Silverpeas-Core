@@ -28,6 +28,7 @@ import com.silverpeas.personalization.UserPreferences;
 import com.silverpeas.session.SessionInfo;
 import com.silverpeas.util.StringUtil;
 import com.stratelia.webactiv.SilverpeasRole;
+import com.stratelia.webactiv.beans.admin.PaginationPage;
 import com.stratelia.webactiv.beans.admin.UserDetail;
 import com.stratelia.webactiv.util.GeneralPropertiesManager;
 import com.stratelia.webactiv.util.ResourceLocator;
@@ -338,5 +339,26 @@ public abstract class RESTWebService {
    */
   protected abstract class WebTreatment<RETURN_VALUE> {
     public abstract RETURN_VALUE execute();
+  }
+
+  /**
+   * This method return a PaginationPage if page has right format, null else if
+   * @param page the page/maxResults string representation as "nbPage;maxResults"
+   * @return a Pagination page build over a page string representation
+   */
+  protected PaginationPage fromPage(String page) {
+    PaginationPage paginationPage = null;
+    if (page != null && !page.isEmpty()) {
+      String[] pageAttributes = page.split(";");
+      try {
+        int nth = Integer.valueOf(pageAttributes[0]);
+        int count = Integer.valueOf(pageAttributes[1]);
+        if (count > 0) {
+          paginationPage = new PaginationPage(nth, count);
+        }
+      } catch (NumberFormatException ex) {
+      }
+    }
+    return paginationPage;
   }
 }

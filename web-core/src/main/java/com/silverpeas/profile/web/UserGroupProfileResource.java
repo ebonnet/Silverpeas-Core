@@ -30,7 +30,6 @@ import com.silverpeas.util.CollectionUtil;
 import com.silverpeas.web.RESTWebService;
 import com.stratelia.webactiv.beans.admin.Domain;
 import com.stratelia.webactiv.beans.admin.Group;
-import com.stratelia.webactiv.beans.admin.PaginationPage;
 import org.silverpeas.admin.user.constant.UserState;
 import org.silverpeas.util.ListSlice;
 
@@ -293,19 +292,4 @@ public class UserGroupProfileResource extends RESTWebService {
     return UserGroupProfileEntity.fromGroup(group).withAsUri(groupUri);
   }
 
-  private PaginationPage fromPage(String page) {
-    PaginationPage paginationPage = null;
-    if (page != null && !page.isEmpty()) {
-      String[] pageAttributes = page.split(";");
-      try {
-        int nth = Integer.valueOf(pageAttributes[0]);
-        int count = Integer.valueOf(pageAttributes[1]);
-        if (count > 0) {
-          paginationPage = new PaginationPage(nth, count);
-        }
-      } catch (NumberFormatException ex) {
-      }
-    }
-    return paginationPage;
-  }
 }

@@ -450,16 +450,4 @@ public class UserProfileResource extends RESTWebService {
     }
   }
 
-  private PaginationPage fromPage(String page) {
-    PaginationPage paginationPage = null;
-    if (page != null && !page.isEmpty()) {
-      String[] pageAttributes = page.split(";");
-      int nth = Integer.valueOf(pageAttributes[0]);
-      int count = Integer.valueOf(pageAttributes[1]);
-      if (count > 0) {
-        paginationPage = new PaginationPage(nth, count);
-      }
-    }
-    return paginationPage;
-  }
 }

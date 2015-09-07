@@ -32,6 +32,7 @@ import org.silverpeas.search.searchEngine.model.MatchingIndexEntry;
 import com.stratelia.webactiv.util.FileRepositoryManager;
 import com.stratelia.webactiv.util.FileServerUtils;
 import java.io.File;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -58,6 +59,7 @@ public class GlobalSilverResult extends GlobalSilverContent implements java.io.S
   private String externalUrl = null;
   private boolean isDownloadAllowedForReaders = true;
   private boolean userAllowedToDownloadFile = true;
+  private Date lastUpdateDate = null;
 
   /**
    * List of all linked attachment in wysiwyg content
@@ -299,6 +301,14 @@ public class GlobalSilverResult extends GlobalSilverContent implements java.io.S
 
   public void setDownloadAllowedForReaders(final boolean isDownloadAllowedForReaders) {
     this.isDownloadAllowedForReaders = isDownloadAllowedForReaders;
+  }
+
+  public Date getLastUpdateDate() {
+    return lastUpdateDate;
+  }
+
+  public void setLastUpdateDate(final Date lastUpdateDate) {
+    this.lastUpdateDate = lastUpdateDate;
   }
 
   @Override
