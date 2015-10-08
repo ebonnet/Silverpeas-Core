@@ -75,6 +75,7 @@ public class SearchResource extends RESTWebService {
       @DefaultValue("false") @QueryParam("file") boolean file, @QueryParam("appids") String appIds,
       @QueryParam("spaceids") String spaceIds, @QueryParam("taxonomy") String taxonomy,
       @QueryParam("page") String page) {
+    //TODO change mandatory conditions, it can be query and/or taxonomy mandatory
     if (!StringUtil.isDefined(query)) {
       throw new WebApplicationException(
           Response.status(HttpURLConnection.HTTP_BAD_REQUEST).entity("q parameter is mandatory")
@@ -112,8 +113,59 @@ public class SearchResource extends RESTWebService {
           Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("unknown exception")
               .build());
     }
-
   }
 
+  /*
+  private void searchService() {
+    if (pdcUsedDuringSearch) {
+      // the search context is not empty. We have to search all silvercontentIds according to
+      // query settings
+      alSilverContentIds = searchAllSilverContentId(pdcSC, searchParameters);
+    }
+    SilverTrace.debug("pdcPeas", "PdcPeasRequestRouter.AdvancedSearch",
+        "root.MSG_GEN_PARAM_VALUE", "avant search");
+    // the query string contains something
+    if (searchParameters.isDefined()
+        || (StringUtil.isDefined(searchParameters.getSpaceId()) && !pdcUsedDuringSearch)
+        || pdcSC.isDataTypeDefined()) {
+      // We have to search objects from classical search and merge it eventually with result
+      // from PDC
+      MatchingIndexEntry[] ie;
+      try {
+        ie = pdcSC.search(); // launch the classical research
+      } catch (org.silverpeas.search.searchEngine.model.ParseException pex) {
+        ie = new MatchingIndexEntry[0];
+        request.setAttribute("parseException", pex.getMessage());
+      }
+
+      if (pdcUsedDuringSearch) {
+        pdcSC.setSearchScope(PdcSearchSessionController.SEARCH_MIXED);
+
+        // We retain only objects which are presents in the both search result list
+        MatchingIndexEntry[] result = mixedSearch(ie, alSilverContentIds);
+
+        // filtre les résultats affichables
+        pdcSC.processResultsToDisplay(result);
+      } else {
+        pdcSC.setSearchScope(PdcSearchSessionController.SEARCH_FULLTEXT);
+
+        // filtre les résultats affichables
+        pdcSC.processResultsToDisplay(ie);
+      }
+
+    } else {
+      pdcSC.setSearchScope(PdcSearchSessionController.SEARCH_PDC);
+
+      // get the list of silvercontents according to the list of silvercontent ids
+      List<GlobalSilverContent> alSilverContents = pdcSearchOnly(alSilverContentIds, pdcSC);
+
+      pdcSC.setResults(alSilverContents);
+      pdcSC.processResultsToDisplay(alSilverContents);
+    }
+    SilverTrace.debug("pdcPeas", "PdcPeasRequestRouter.AdvancedSearch",
+        "root.MSG_GEN_PARAM_VALUE", "après search");
+  }
+
+  */
 
 }

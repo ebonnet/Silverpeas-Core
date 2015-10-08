@@ -34,7 +34,6 @@ import org.silverpeas.core.admin.OrganisationController;
 import org.silverpeas.core.admin.OrganisationControllerFactory;
 import org.silverpeas.search.searchEngine.model.QueryDescription;
 
-import javax.ws.rs.core.UriInfo;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -96,6 +95,7 @@ public class RestQueryDescriptionBuilder {
   }
 
   public RestQueryDescriptionBuilder inApplications(String applicationIds) {
+    //TODO add filter on specific Kmelia applications !!! We only return publications results.
     List<String> appIds = new ArrayList<String>();
     if (StringUtil.isDefined(applicationIds)) {
       for (String applicationId : applicationIds.split(";")) {
