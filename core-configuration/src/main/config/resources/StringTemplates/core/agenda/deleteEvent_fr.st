@@ -1,0 +1,1 @@
+Votre rendez-vous intitulé <b>$name$</b> avec <b>$sender$</b> prévu le $eventTimeDescription_fr()$ a été supprimé.

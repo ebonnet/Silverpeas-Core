@@ -1,0 +1,1 @@
+Your event in the diary titled <b>$name$</b> with <b>$sender$</b> planned at $eventTimeDescription_de()$ has been removed.

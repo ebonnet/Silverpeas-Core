@@ -1,0 +1,1 @@
+<b>$senderUser.firstName$ $senderUser.lastName$</b> has accepted your invitation.

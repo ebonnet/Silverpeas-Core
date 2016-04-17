@@ -1,0 +1,1 @@
+Votre rendez-vous intitulé <b>$name$</b> avec <b>$sender$</b> a été décalé au $eventTimeDescription_fr()$.
